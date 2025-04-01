@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biophotonics Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Biophotonics Quiz</h1>
+
+        <!-- Week Selection Area -->
+        <div id="week-selection" class="selection-area">
+            <h2>Select Quiz Weeks</h2>
+            <div class="select-all-container">
+                 <input type="checkbox" id="select-all-weeks">
+                 <label for="select-all-weeks">Select/Deselect All</label>
+            </div>
+            <div id="week-checkboxes" class="checkbox-grid">
+                <!-- Checkboxes will be populated by JavaScript -->
+            </div>
+
+            <!-- Mode Selection -->
+            <div class="mode-selection">
+                <h3>Question Order:</h3>
+                <label for="mode-ordered">
+                    <input type="radio" id="mode-ordered" name="orderMode" value="ordered" checked> Ordered
+                </label>
+                <label for="mode-random">
+                    <input type="radio" id="mode-random" name="orderMode" value="random"> Random
+                </label>
+            </div>
+            <!-- End Mode Selection -->
+
+            <button id="start-quiz-btn">Start Quiz</button>
+            <p id="selection-error" class="error-message hidden">Please select at least one week.</p>
+        </div>
+
+        <!-- Quiz Area -->
+        <div id="quiz-area" class="hidden">
+            <div id="quiz-header">
+                <span id="question-counter"></span>
+                <span id="current-score">Score: 0</span>
+            </div>
+            <hr>
+            <div id="question-container">
+                <h2 id="question-text">Question text goes here</h2>
+                <div id="options-container">
+                    <!-- Options will be populated by JavaScript -->
+                </div>
+            </div>
+            <div id="feedback-container" class="hidden">
+                 <p id="feedback-text"></p>
+                 <p id="explanation-text"></p>
+            </div>
+             <p id="answer-error" class="error-message hidden">Please select an answer.</p>
+            <button id="submit-answer-btn">Submit Answer</button>
+            <button id="go-home-btn" class="secondary-button">Home</button>
+        </div>
+
+        <!-- Results Area -->
+        <div id="results-area" class="hidden">
+            <h2>Quiz Complete!</h2>
+            <p id="final-score"></p>
+            <button id="restart-quiz-btn">Take Another Quiz</button>
+        </div>
+    </div>
+
+    <!-- Scripts: Load Data First, then Logic -->
+    <script src="quizData.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

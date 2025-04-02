@@ -35,10 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fisher-Yates (Knuth) Shuffle Algorithm
     function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
+        // Create a copy to avoid modifying the original array directly
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
         }
+        return shuffledArray; // Return the shuffled copy
     }
 
 
@@ -101,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selectedWeekCheckboxes.forEach(checkbox => {
             const weekIndex = parseInt(checkbox.value);
-            // Add a copy of questions to avoid modifying original data if we splice later
+            // Add a copy of questions to avoid modifying original data
             const questionsToAdd = [...quizData[weekIndex].questions];
             selectedQuestions.push(...questionsToAdd);
         });
@@ -118,18 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
                  }
                  return true; // Include all other questions
              });
-             // console.log("Only Week 1 selected, filtered last question. Count:", selectedQuestions.length);
-        } else {
-            // console.log("Multiple weeks or not just Week 1 selected. Count:", selectedQuestions.length);
         }
 
-        // Check selected order mode and shuffle if 'random'
+        // Check selected order mode and shuffle questions if 'random'
         const selectedMode = document.querySelector('input[name="orderMode"]:checked').value;
         if (selectedMode === 'random') {
-            shuffleArray(selectedQuestions);
-            // console.log("Questions shuffled.");
-        } else {
-            // console.log("Questions ordered.");
+            // Shuffle the array of question *objects*
+            selectedQuestions = shuffleArray(selectedQuestions);
         }
 
         // Reset state and display
@@ -169,7 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update counter
         questionCounterSpan.textContent = `Question ${currentQuestionIndex + 1} of ${selectedQuestions.length}`;
 
-        currentQuestion.options.forEach((option, index) => {
+        // **MODIFICATION**: Shuffle the options *for this specific question* before displaying
+        const optionsToDisplay = shuffleArray(currentQuestion.options); // Shuffle a copy
+
+        optionsToDisplay.forEach((option, index) => {
             const optionId = `option-${index}`;
 
             // Use a label as the clickable element
@@ -181,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             radioInput.type = 'radio';
             radioInput.id = optionId;
             radioInput.name = 'quizOption'; // Group radios
-            radioInput.value = option;
+            radioInput.value = option; // The value *is* the option text
 
             label.appendChild(radioInput); // Input inside label
             label.appendChild(document.createTextNode(option)); // Text node after input

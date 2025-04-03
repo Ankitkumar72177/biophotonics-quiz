@@ -1,11 +1,84 @@
 /* CSS styles previously in style.css */
-body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+*, *:before, *:after {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: #171717;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+.lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 90vw;
+    z-index: -1;
+}
+
+.line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 7s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+
+.line:nth-child(1) {
+    margin-left: -25%;
+}
+
+.line:nth-child(1)::after {
+    animation-delay: 2s;
+}
+
+.line:nth-child(3) {
+    margin-left: 25%;
+}
+
+.line:nth-child(3)::after {
+    animation-delay: 2.5s;
+}
+
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
 }
 
 .container {
@@ -33,30 +106,78 @@ h1, h2 {
 }
 
 .select-all-container {
-    margin-bottom: 15px;
-    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.select-all-container input[type="checkbox"],
+.checkbox-grid input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.select-all-container input[type="checkbox"]:checked,
+.checkbox-grid input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.select-all-container input[type="checkbox"]:checked::after,
+.checkbox-grid input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.select-all-container input[type="checkbox"]:hover,
+.checkbox-grid input[type="checkbox"]:hover {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
 .checkbox-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
     margin-bottom: 20px;
 }
 
 .checkbox-grid label {
-    display: block; /* Ensure label takes full width for clicking */
-    padding: 5px;
-    background-color: #eee;
-    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
 .checkbox-grid label:hover {
-    background-color: #e0e0e0;
-}
-.checkbox-grid input[type="checkbox"] {
-    margin-right: 8px;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+    background: rgba(255, 255, 255, 0.95);
 }
 
 /* Mode Selection Styling */

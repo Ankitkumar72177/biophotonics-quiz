@@ -1,3 +1,13 @@
+/*
+Version History:
+v1.0.0 (2025-04-04) - Initial release
+- Core styling for quiz interface
+- Responsive design with grid layout
+- Animated background lines
+- Interactive button and input states
+- Feedback color schemes
+*/
+
 /* CSS styles previously in style.css */
 *, *:before, *:after {
     margin: 0;
@@ -13,13 +23,17 @@ body {
     display: table;
     width: 100%;
     height: 100%;
-    background-color: #171717;
-    color: #333;
+    background: linear-gradient(135deg, #023047 0%, #219EBC 50%, #8ECAE6 100%) fixed;
+    color: #023047;
     line-height: 1.6;
     position: relative;
-    font-family: sans-serif;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
     overflow-x: hidden;
+    transition: background 0.6s;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
 
 .lines {
     position: fixed;
@@ -83,36 +97,61 @@ body {
 
 .container {
     max-width: 800px;
-    margin: 30px auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    background: rgba(255,255,255,0.97);
+    padding: 40px 32px 32px 32px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 10px 0 rgba(0,0,0,0.09);
+    backdrop-filter: blur(7px);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    animation: fadein 1.2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1, h2 {
     text-align: center;
-    color: #333;
+    color: #023047;
     margin-bottom: 20px;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(2, 48, 71, 0.08);
+}
+
+h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 1.7em;
+    font-weight: 600;
 }
 
 /* --- Selection Area --- */
 .selection-area {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
+    border: 1.5px solid rgba(33, 158, 188, 0.2);
+    padding: 28px 20px 20px 20px;
+    border-radius: 12px;
+    margin-bottom: 26px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(2, 48, 71, 0.08);
 }
 
 .select-all-container {
     margin-bottom: 20px;
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    gap: 10px;
+    border: 1px solid rgba(33, 158, 188, 0.2);
+    box-shadow: 0 2px 8px rgba(2, 48, 71, 0.08);
 }
 
 .select-all-container input[type="checkbox"],
@@ -120,21 +159,25 @@ h1, h2 {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    min-width: 20px;
     width: 20px;
     height: 20px;
-    border: 2px solid #007bff;
-    border-radius: 4px;
-    margin-right: 10px;
+    border: 2px solid #219EBC;
+    border-radius: 5px;
+    margin: 0;
     position: relative;
     cursor: pointer;
     vertical-align: middle;
-    transition: all 0.2s ease;
+    background: #f7f7fa;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(106, 17, 203, 0.08);
+    flex-shrink: 0;
 }
 
 .select-all-container input[type="checkbox"]:checked,
 .checkbox-grid input[type="checkbox"]:checked {
-    background-color: #007bff;
-    border-color: #007bff;
+    background: linear-gradient(120deg, #219EBC 0%, #023047 100%);
+    border-color: #219EBC;
 }
 
 .select-all-container input[type="checkbox"]:checked::after,
@@ -150,34 +193,31 @@ h1, h2 {
 
 .select-all-container input[type="checkbox"]:hover,
 .checkbox-grid input[type="checkbox"]:hover {
-    border-color: #0056b3;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    border-color: #219EBC;
+    box-shadow: 0 0 0 3px rgba(33, 158, 188, 0.1);
 }
 
 .checkbox-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
     gap: 12px;
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 .checkbox-grid label {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.2s ease;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.checkbox-grid label:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: #007bff;
-    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(33, 158, 188, 0.2);
+    box-shadow: 0 2px 8px rgba(2, 48, 71, 0.08);
+    margin: 0;
+    min-height: 48px;
 }
 
 /* Mode Selection Styling */
@@ -202,7 +242,7 @@ h1, h2 {
     justify-content: space-between;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #555;
+    color: #023047;
 }
 
 #question-container {
@@ -211,22 +251,23 @@ h1, h2 {
 
 #options-container .option {
     display: block; /* Make label take full width */
-    background-color: #f0f0f0;
+    background: rgba(142, 202, 230, 0.2);
     padding: 12px 15px;
     margin-bottom: 10px;
     border-radius: 5px;
     cursor: pointer;
-    border: 1px solid #ddd;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border: 1px solid rgba(33, 158, 188, 0.2);
+    transition: all 0.2s ease;
 }
 
 #options-container .option:hover {
-    background-color: #e8e8e8;
+    background: rgba(142, 202, 230, 0.3);
+    border-color: #219EBC;
 }
 
 #options-container .option.selected {
-    background-color: #d0e0ff; /* Highlight selected option */
-    border-color: #a0c4ff;
+    background: rgba(142, 202, 230, 0.9);
+    border-color: #219EBC;
 }
 
 
@@ -243,15 +284,15 @@ h1, h2 {
 }
 
 #feedback-container.correct {
-    background-color: #e6ffed;
-    border-color: #5cb85c;
-    color: #3c763d;
+    background: rgba(255, 183, 3, 0.15);
+    border-color: #FFB703;
+    color: #023047;
 }
 
 #feedback-container.incorrect {
-    background-color: #f2dede;
-    border-color: #d9534f;
-    color: #a94442;
+    background: rgba(251, 133, 0, 0.15);
+    border-color: #FB8500;
+    color: #023047;
 }
 
 #feedback-text {
@@ -280,19 +321,28 @@ h1, h2 {
 button {
     display: block;
     width: 100%;
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
+    padding: 14px 22px;
+    background: linear-gradient(90deg, #219EBC 0%, #023047 100%);
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 7px;
+    font-size: 1.08em;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin-top: 20px;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(106, 17, 203, 0.09);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 22px;
 }
 
+button:active {
+    transform: scale(0.98);
+}
+
+
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(90deg, #023047 0%, #219EBC 100%);
+    box-shadow: 0 4px 16px rgba(33, 158, 188, 0.2);
 }
 
 button:disabled {
@@ -302,13 +352,13 @@ button:disabled {
 
 /* Style for the secondary Go Home button */
 button.secondary-button {
-     background-color: #6c757d; /* Grey color */
+     background-color: #FFB703; /* Grey color */
      margin-top: 10px; /* Smaller top margin */
      padding: 8px 15px; /* Smaller padding */
      font-size: 0.9em; /* Smaller font */
 }
 button.secondary-button:hover {
-     background-color: #5a6268;
+     background-color: #FB8500;
 }
 
 
@@ -318,8 +368,82 @@ button.secondary-button:hover {
 }
 
 .error-message {
-    color: #d9534f; /* Red color for errors */
+    color: #FB8500; /* Red color for errors */
     font-size: 0.9em;
     margin-top: 10px;
     text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 20px 15px;
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 5px;
+    }
+
+    .checkbox-grid label {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .select-all-container {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    #options-container .option {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    button {
+        padding: 12px 18px;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 10px;
+        padding: 20px 15px;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    #feedback-container {
+        padding: 12px;
+    }
+
+    #explanation-text {
+        font-size: 0.9em;
+    }
+
+    .mode-selection label {
+        display: block;
+        margin-bottom: 8px;
+    }
 }

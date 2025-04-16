@@ -51,35 +51,40 @@ document.addEventListener('DOMContentLoaded', () => {
         quizData.forEach((weekData, index) => {
             const weekId = `week-${index}`;
             const checkboxContainer = document.createElement('div');
+            
+            const label = document.createElement('label');
+            label.htmlFor = weekId;
+            
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = weekId;
-            checkbox.value = index; // Store the index of the week in quizData
+            checkbox.value = index;
             checkbox.classList.add('week-checkbox');
-
-            const label = document.createElement('label');
-            label.htmlFor = weekId;
-            label.textContent = weekData.week;
-
-            checkboxContainer.appendChild(checkbox);
+            
+            const labelText = document.createElement('span');
+            labelText.textContent = weekData.week;
+            
+            label.appendChild(checkbox);
+            label.appendChild(labelText);
             checkboxContainer.appendChild(label);
             weekCheckboxesDiv.appendChild(checkboxContainer);
         });
-         // Add listener for individual checkboxes to potentially uncheck 'Select All'
-         document.querySelectorAll('.week-checkbox').forEach(cb => {
-             cb.addEventListener('change', () => {
-                 if (!cb.checked) {
-                     selectAllCheckbox.checked = false;
-                 } else {
-                     // Check if all are now checked
-                     const allCheckboxes = document.querySelectorAll('.week-checkbox');
-                     const allChecked = Array.from(allCheckboxes).every(c => c.checked);
-                     if(allChecked){
-                         selectAllCheckbox.checked = true;
-                     }
-                 }
-             });
-         });
+        
+        // Add listener for individual checkboxes to potentially uncheck 'Select All'
+        document.querySelectorAll('.week-checkbox').forEach(cb => {
+            cb.addEventListener('change', () => {
+                if (!cb.checked) {
+                    selectAllCheckbox.checked = false;
+                } else {
+                    // Check if all are now checked
+                    const allCheckboxes = document.querySelectorAll('.week-checkbox');
+                    const allChecked = Array.from(allCheckboxes).every(c => c.checked);
+                    if(allChecked){
+                        selectAllCheckbox.checked = true;
+                    }
+                }
+            });
+        });
     }
 
     // Handle Select/Deselect All
@@ -148,12 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Display Current Question and Options
     function displayQuestion() {
-        answerSubmitted = false; // Reset submission state for the new question
-        feedbackContainerDiv.classList.add('hidden'); // Hide feedback from previous question
-        answerError.classList.add('hidden'); // Hide error message
-        submitAnswerBtn.textContent = 'Submit Answer'; // Reset button text
-        submitAnswerBtn.disabled = false; // Re-enable button
-
+        answerSubmitted = false;
+        feedbackContainerDiv.classList.add('hidden');
+        answerError.classList.add('hidden');
+        submitAnswerBtn.textContent = 'Submit Answer';
+        submitAnswerBtn.disabled = false;
 
         if (currentQuestionIndex >= selectedQuestions.length) {
             showResults();
@@ -162,18 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentQuestion = selectedQuestions[currentQuestionIndex];
         questionTextH2.textContent = currentQuestion.question;
-        optionsContainerDiv.innerHTML = ''; // Clear previous options
+        optionsContainerDiv.innerHTML = '';
 
         // Update counter
         questionCounterSpan.textContent = `Question ${currentQuestionIndex + 1} of ${selectedQuestions.length}`;
 
-        // **MODIFICATION**: Shuffle the options *for this specific question* before displaying
-        const optionsToDisplay = shuffleArray(currentQuestion.options); // Shuffle a copy
+        // Only shuffle options if in random mode
+        const selectedMode = document.querySelector('input[name="orderMode"]:checked').value;
+        const optionsToDisplay = selectedMode === 'random' ? 
+            shuffleArray([...currentQuestion.options]) : 
+            [...currentQuestion.options];
 
         optionsToDisplay.forEach((option, index) => {
             const optionId = `option-${index}`;
-
-            // Use a label as the clickable element
             const label = document.createElement('label');
             label.htmlFor = optionId;
             label.classList.add('option');
@@ -181,23 +186,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const radioInput = document.createElement('input');
             radioInput.type = 'radio';
             radioInput.id = optionId;
-            radioInput.name = 'quizOption'; // Group radios
-            radioInput.value = option; // The value *is* the option text
+            radioInput.name = 'quizOption';
+            radioInput.value = option;
 
-            label.appendChild(radioInput); // Input inside label
-            label.appendChild(document.createTextNode(option)); // Text node after input
+            label.appendChild(radioInput);
+            label.appendChild(document.createTextNode(option));
 
-            // Add event listener to the label for visual feedback
-             label.addEventListener('click', () => {
-                 // Remove 'selected' class from all options first
-                 document.querySelectorAll('#options-container .option').forEach(optLabel => {
-                     optLabel.classList.remove('selected');
-                 });
-                 // Add 'selected' class to the clicked label
-                 label.classList.add('selected');
-                 // Clear error if user selects an option
-                  answerError.classList.add('hidden');
-             });
+            label.addEventListener('click', () => {
+                document.querySelectorAll('#options-container .option').forEach(optLabel => {
+                    optLabel.classList.remove('selected');
+                });
+                label.classList.add('selected');
+                answerError.classList.add('hidden');
+            });
 
             optionsContainerDiv.appendChild(label);
         });

@@ -337,64 +337,69 @@ const quizData = [
         week: "Week 6", // Optical and Spectroscopic Techniques
         questions: [
             {
-                question: "Which type of microscopy uses a special condenser to block direct light and allow only scattered light to form the image?",
-                options: ["Bright-field microscopy", "Dark-field microscopy", "Phase-contrast microscopy", "Differential interference contrast microscopy"],
+                question: "Which type of microscopy uses a special filter to block direct light from the specimen and only allow scattered light to reach the objective lens?",
+                options: ["Bright-field microscopy", "Dark-field microscopy", "Phase-contrast microscopy", "Fluorescence microscopy"],
                 correctAnswer: "Dark-field microscopy",
-                explanation: "Dark-field microscopy employs a condenser with an opaque stop that blocks the central illuminating rays, so only light scattered or diffracted by the specimen enters the objective, making the specimen appear bright against a dark background."
+                explanation: "Dark-field microscopy blocks direct illumination; only light scattered by the specimen enters the objective, creating a bright image on a dark background."
             },
             {
-                question: "In dark-field microscopy, how do highly refractive structures in a specimen appear?",
-                options: ["Invisible", "Dark with a halo", "Bright against a dark background", "Color-shifted"],
-                correctAnswer: "Bright against a dark background",
-                explanation: "Structures that scatter or refract light significantly (often due to high refractive index differences) will appear bright against the dark background in dark-field microscopy because they redirect light into the objective."
+                question: "What happens to the appearance of dense structures within a specimen in dark field microscopy?",
+                options: ["They appear bright.", "They appear dark.", "They emit fluorescence.", "They show a rainbow color pattern."],
+                correctAnswer: "They appear bright.",
+                explanation: "Dense structures in dark-field scatter light effectively, making them appear bright against the non-scattering dark background."
             },
             {
-                question: "Which FRET-based probe is widely utilized in RT-PCR assays for detecting SARS-CoV-2?",
-                options: ["SYBR Green", "Scorpion probe", "TaqMan probe", "Molecular Beacon"],
-                correctAnswer: "TaqMan probe",
-                explanation: "TaqMan probes are hydrolysis probes commonly used in real-time PCR (RT-PCR). They have a fluorophore and a quencher. During PCR amplification, the polymerase's exonuclease activity cleaves the probe, separating the fluorophore from the quencher and generating a signal. This relies on FRET in the intact probe."
+                question: "Name the Fluorescence Resonance Energy Transfer based probe, which is hugely used in RT-PCR to determine SARS Cov2",
+                options: ["SYBR green", "Molecular Beacon", "Taq-man probe", "Eclipse probe"],
+                correctAnswer: "Taq-man probe",
+                explanation: "Taq-man probe is a FRET-based probe used in RT-PCR. Its fluorescence increases as it's cleaved during target DNA amplification, commonly used for SARS-CoV-2 detection."
             },
             {
-                question: "What characteristic of light does optical coherence tomography (OCT) exploit to resolve axial distances in tissue?",
-                options: ["Intensity", "Coherence", "Refraction", "Absorption"],
-                correctAnswer: "Coherence",
-                explanation: "OCT utilizes the low coherence (specifically, short coherence length) of its light source. Interference occurs only when the path lengths of light reflected from the sample and the reference mirror match within this coherence length, providing axial resolution."
+                question: "Which property of light is utilized in OCT to achieve depth information in tissues?",
+                options: ["Refraction.", "Diffraction.", "Polarization.", "Coherence."],
+                correctAnswer: "Coherence.",
+                explanation: "OCT uses low-coherence interferometry. Only light reflected from specific depths interferes with reference light, enabling depth-resolved imaging."
             },
             {
-                question: "Which microscopy technique relies on electrons passing through a thin specimen to produce an image?",
-                options: ["Scanning Electron Microscopy (SEM)", "Transmission Electron Microscopy (TEM)", "Confocal Microscopy", "Scanning Tunneling Microscopy (STM)"],
+                question: "Which microscopy technique uses a beam of electrons to image a sample?",
+                options: ["Transmission Electron Microscopy (TEM)", "Scanning Electron Microscopy (SEM)", "Atomic Force Microscopy (AFM)", "All of the above"],
                 correctAnswer: "Transmission Electron Microscopy (TEM)",
-                explanation: "TEM forms an image by transmitting a beam of electrons through an ultrathin specimen. Interactions between the electrons and the specimen (scattering, diffraction) create contrast in the resulting image."
+                explanation: "Transmission Electron Microscopy (TEM) uses a beam of electrons transmitted through an ultra-thin sample to visualize internal structures. (SEM also uses electrons, but for surface imaging)."
             },
             {
-                question: "Which imaging method is most commonly employed to observe Green Fluorescent Protein (GFP) in live cells?",
-                options: ["Bright-field microscopy", "Fluorescence microscopy", "Electron microscopy", "Infrared spectroscopy"],
+                question: "Which technique is commonly used to visualize GFP in cells or tissues?",
+                options: ["Western blotting", "Polymerase chain reaction (PCR)", "Fluorescence microscopy", "Mass spectrometry"],
                 correctAnswer: "Fluorescence microscopy",
-                explanation: "Fluorescence microscopy uses specific excitation wavelengths to cause GFP (and its variants) to fluoresce at their characteristic emission wavelengths, allowing visualization of tagged proteins or structures within living cells."
+                explanation: "Fluorescence microscopy directly visualizes intrinsically fluorescent molecules like GFP by exciting them with specific wavelengths and detecting their emission."
             },
             {
-                question: "What type of wave is utilized in diagnostic ultrasound imaging?",
-                options: ["Electromagnetic wave", "Longitudinal wave", "Transverse wave", "Surface wave"],
+                question: "Wave that is used in diagnostic ultrasound is",
+                options: ["Electromagnetic waves", "Longitudinal wave", "Transverse wave", "None of them"],
                 correctAnswer: "Longitudinal wave",
-                explanation: "Diagnostic ultrasound uses high-frequency sound waves, which are longitudinal waves (compressions and rarefactions) that propagate through the tissue."
+                explanation: "Diagnostic ultrasound uses high-frequency sound, which propagates through tissue as mechanical longitudinal (compression) waves."
             },
             {
-                question: "Which technique is primarily used to determine the elemental composition of a sample in conjunction with electron microscopy?",
-                options: ["Energy Dispersive X-ray Spectroscopy (EDS)", "Fourier Transform Infrared Spectroscopy (FTIR)", "Raman Spectroscopy", "Nuclear Magnetic Resonance (NMR)"],
-                correctAnswer: "Energy Dispersive X-ray Spectroscopy (EDS)",
-                explanation: "EDS (also known as EDX) is often integrated with SEM or TEM. The electron beam excites atoms in the sample, causing them to emit characteristic X-rays whose energies correspond to specific elements, allowing elemental analysis."
+                question: "Which technique is used to analyze the elemental composition of a sample?",
+                options: ["Energy Dispersive X-ray Spectroscopy (EDS)", "Scanning Electron Microscopy (SEM)", "Transmission Electron Microscopy (TEM)", "All of the above"],
+                correctAnswer: "Scanning Electron Microscopy (SEM)",
+                explanation: "While EDS is the technique for elemental analysis (detecting X-rays), it's typically performed using the electron beam of an SEM, which also provides surface imaging."
             },
             {
-                question: "What condition is essential for Fluorescence Resonance Energy Transfer (FRET) to take place?",
-                options: ["The donor and acceptor fluorophores must be identical", "The emission spectrum of the donor must overlap with the acceptor's excitation spectrum", "The donor and acceptor must be separated by more than 100 nm", "The acceptor must emit light at a shorter wavelength than the donor"],
-                correctAnswer: "The emission spectrum of the donor must overlap with the acceptor's excitation spectrum",
-                explanation: "Effective FRET requires several conditions: close proximity (typically 1-10 nm), favorable dipole orientation, and significant spectral overlap between the donor's emission spectrum and the acceptor's absorption (excitation) spectrum."
+                question: "What is the key requirement for FRET to occur?",
+                options: [
+                    "The emission spectrum of the donor fluorophore must overlap with the excitation spectrum of the acceptor fluorophore.",
+                    "The donor and acceptor fluorophores must be chemically identical.",
+                    "The donor and acceptor fluorophores must be far apart.",
+                    "The donor fluorophore must have a higher excitation wavelength than the acceptor fluorophore."
+                ],
+                correctAnswer: "The emission spectrum of the donor fluorophore must overlap with the excitation spectrum of the acceptor fluorophore.",
+                explanation: "Key FRET requirement: The donor's emitted light energy (emission spectrum) must match the energy the acceptor can absorb (excitation spectrum)."
             },
             {
-                question: "What is the approximate penetration depth of optical coherence tomography (OCT) in biological tissues?",
-                options: ["A few millimeters", "A few centimeters", "A few decimeters", "A few meters"],
+                question: "What is the typical depth of penetration of OCT?",
+                options: ["A few millimeters", "A few centimeters", "A few meters", "A few kilometers"],
                 correctAnswer: "A few millimeters",
-                explanation: "The penetration depth of OCT in most biological tissues is typically limited to 1-3 millimeters due to light scattering and absorption, making it suitable for imaging superficial structures like the retina, skin, and mucous membranes."
+                explanation: "OCT penetration depth in biological tissue is limited by light scattering, typically reaching only 1-3 millimeters."
             }
         ]
    },
@@ -729,6 +734,138 @@ const quizData = [
                 ],
                 correctAnswer: "It creates precise incisions with minimal thermal damage",
                 explanation: "Femtosecond lasers are ideal for cell surgery as they deliver high-precision energy pulses that minimize thermal damage to the surrounding tissue."
+            }
+        ]
+    },
+    // ------------- WEEK 11 -------------
+    {
+        week: "Week 11",
+        questions: [
+            {
+                question: "The unique properties of nanoparticles arise from:",
+                options: ["Increased surface area", "Quantum size effects", "Both a and b", "None of the above"],
+                correctAnswer: "Both a and b",
+                explanation: "The unique properties of nanoparticles arise from both increased surface area and quantum size effects."
+            },
+            {
+                question: "Plant-based nanoparticles can have:",
+                options: ["Antimicrobial properties", "Antioxidant properties", "Anti-inflammatory properties", "All of the above"],
+                correctAnswer: "All of the above",
+                explanation: "Plant-based nanoparticles can exhibit antimicrobial, antioxidant, and anti-inflammatory properties."
+            },
+            {
+                question: "What is the primary purpose of photolithography in semiconductor manufacturing?",
+                options: ["To deposit thin films of materials", "To etch patterns into a substrate", "To create electrical connections between components", "To transfer a pattern from a mask to a photosensitive material"],
+                correctAnswer: "To transfer a pattern from a mask to a photosensitive material",
+                explanation: "Photolithography is primarily used to transfer patterns from a mask to a photosensitive material in semiconductor manufacturing."
+            },
+            {
+                question: "Who is credited with the invention of the integrated circuit?",
+                options: ["Jack Kilby and Robert Noyce", "Nikola Tesla", "Thomas Edison", "William Shockley"],
+                correctAnswer: "Jack Kilby and Robert Noyce",
+                explanation: "Jack Kilby and Robert Noyce are credited with the invention of the integrated circuit."
+            },
+            {
+                question: "What is the main limitation of Electron Beam Lithography?",
+                options: ["Low resolution", "High cost", "Low throughput", "All of the above"],
+                correctAnswer: "Low throughput",
+                explanation: "The main limitation of Electron Beam Lithography is its low throughput."
+            },
+            {
+                question: "What is the role of the molecular or atomic beams in MBE?",
+                options: ["To cool the substrate", "To heat the growth chamber", "To supply the epitaxial growth material", "To create a vacuum in the chamber"],
+                correctAnswer: "To supply the epitaxial growth material",
+                explanation: "In Molecular Beam Epitaxy (MBE), molecular or atomic beams are used to supply the epitaxial growth material."
+            },
+            {
+                question: "Biochips are used in:",
+                options: ["Drug discovery", "Medical diagnostics", "Environmental monitoring", "All of the above"],
+                correctAnswer: "All of the above",
+                explanation: "Biochips are used in drug discovery, medical diagnostics, and environmental monitoring."
+            },
+            {
+                question: "How is fluorescence used in DNA microarray experiments?",
+                options: ["To heat the microarray", "To amplify DNA sequences", "To detect and measure gene expression levels", "To generate radiofrequency signals"],
+                correctAnswer: "To detect and measure gene expression levels",
+                explanation: "Fluorescence is used in DNA microarray experiments to detect and measure gene expression levels."
+            },
+            {
+                question: "Which of the following is NOT a key step in the photolithography process?",
+                options: ["Photoresist application", "Exposure to light", "Development", "Ion implantation"],
+                correctAnswer: "Ion implantation",
+                explanation: "Ion implantation is not a key step in the photolithography process."
+            },
+            {
+                question: "How are DNA probes attached to a microarray slide?",
+                options: ["Physical adsorption", "Covalent bonding", "Electrostatic interaction", "All of the above"],
+                correctAnswer: "Covalent bonding",
+                explanation: "DNA probes are attached to microarray slides through covalent bonding."
+            }
+        ]
+    },
+    // ------------- WEEK 12 -------------
+    {
+        week: "Week 12",
+        questions: [
+            {
+                question: "Which imaging technique uses infrared light to create high-resolution cross-sectional images of tissues?",
+                options: ["Fluorescence microscopy", "Optical coherence tomography (OCT)", "X-ray imaging", "Positron emission tomography (PET)"],
+                correctAnswer: "Optical coherence tomography (OCT)",
+                explanation: "OCT uses infrared light to create high-resolution cross-sectional images of tissues."
+            },
+            {
+                question: "Which imaging technique in neurophotonics allows for high-resolution imaging of neural structures in living organisms?",
+                options: ["X-ray imaging", "Magnetic Resonance Imaging (MRI)", "Two-photon microscopy", "Computed Tomography (CT) scan"],
+                correctAnswer: "Two-photon microscopy",
+                explanation: "Two-photon microscopy is used for high-resolution imaging of neural structures in living organisms."
+            },
+            {
+                question: "What is the main advantage of OCT over traditional imaging techniques?",
+                options: ["Higher radiation exposure", "Lower resolution", "Non-invasiveness", "Limited depth penetration"],
+                correctAnswer: "Non-invasiveness",
+                explanation: "The main advantage of OCT is its non-invasive nature, allowing imaging without damaging the tissue."
+            },
+            {
+                question: "Which type of biological tissue is often analyzed using Functional Near-Infrared Spectroscopy (fNIRS)?",
+                options: ["Bone", "Skin", "Muscle", "Brain"],
+                correctAnswer: "Brain",
+                explanation: "fNIRS is commonly used to analyze brain tissue and measure brain activity."
+            },
+            {
+                question: "Which of the following is a commonly used light-sensitive protein in Optogenetics?",
+                options: ["Green fluorescent protein (GFP)", "Red blood cells", "Chlorophyll", "Insulin"],
+                correctAnswer: "Green fluorescent protein (GFP)",
+                explanation: "GFP is a commonly used light-sensitive protein in optogenetics for visualizing and controlling neural activity."
+            },
+            {
+                question: "What does the term 'coherence' refer to in Optical Coherence Tomography?",
+                options: ["Uniformity of Light Waves", "Consistency of Image Resolution", "Alignment of Optical Components", "Stability of the Light Source"],
+                correctAnswer: "Uniformity of Light Waves",
+                explanation: "In OCT, coherence refers to the uniformity of light waves, which is used to measure the time delay of reflected light."
+            },
+            {
+                question: "What does the term 'multiphoton excitation' refer to in Two-Photon Microscopy?",
+                options: ["Absorption of two photons by a single molecule simultaneously", "Emission of two photons from a molecule at different times", "Scattering of photons by molecules in random directions", "Combination of photons from two different light sources"],
+                correctAnswer: "Absorption of two photons by a single molecule simultaneously",
+                explanation: "Multiphoton excitation in Two-Photon Microscopy refers to the simultaneous absorption of two photons by a single molecule."
+            },
+            {
+                question: "Which part of the eye is often imaged using OCT to assess retinal health?",
+                options: ["Cornea", "Lens", "Retina", "Sclera"],
+                correctAnswer: "Retina",
+                explanation: "OCT is commonly used to image the retina to assess its health and detect various retinal conditions."
+            },
+            {
+                question: "Which of the following is an application of neurophotonics in the field of neurology?",
+                options: ["Diagnosis of infectious diseases", "Treatment of cardiovascular disorders", "Monitoring neural activity during learning and memory", "Bone density assessment"],
+                correctAnswer: "Monitoring neural activity during learning and memory",
+                explanation: "Neurophotonics is used to monitor neural activity during learning and memory processes."
+            },
+            {
+                question: "Which parameter is commonly measured using functional near-infrared spectroscopy (fNIRS)?",
+                options: ["Blood glucose levels", "Hemoglobin oxygenation", "Electrical conductivity", "Cell viability"],
+                correctAnswer: "Hemoglobin oxygenation",
+                explanation: "fNIRS is commonly used to measure hemoglobin oxygenation levels in tissues."
             }
         ]
     }

@@ -181,10 +181,10 @@ const quizData = [
                 explanation: "Protein misfolding and aggregation are implicated in numerous neurodegenerative diseases, including Prion diseases (like CJD), Alzheimer's disease (Amyloid-beta, Tau), and Parkinson's disease (alpha-synuclein). Refer lecture 14."
             },
             {
-                question: "Name the receptor the Corona virus (SARS-CoV-2) uses to enter the host cell",
-                options: ["Spike protein", "ACE-2", "Capsule", "RNA"],
-                correctAnswer: "ACE-2",
-                explanation: "The Spike protein on the surface of SARS-CoV-2 binds to the ACE-2 (Angiotensin-converting enzyme 2) receptor found on the surface of many human cells, facilitating viral entry."
+                question: "Name the receptor of Corona virus uses to enter the host cell",
+                options: ["Spike", "ACE-2", "Capsule", "RNA"],
+                correctAnswer: "Spike",
+                explanation: "Spiked viruses invade their host cells by interaction of their spikes with molecules on surfaces of the cells."
             },
             {
                 question: "What is the primary function of the Golgi apparatus in a cell?",
@@ -205,64 +205,64 @@ const quizData = [
         week: "Week 4", // Optical and Spectroscopic Techniques
         questions: [
             {
-                question: "In fluorescence microscopy, what process prepares a fluorophore to emit light?",
-                options: ["Photon scattering", "Electron excitation by light absorption", "Molecular vibration", "Energy transfer through heat"],
-                correctAnswer: "Electron excitation by light absorption",
-                explanation: "In fluorescence microscopy, a fluorophore absorbs light energy (photon), exciting an electron to a higher energy state. The subsequent return to the ground state results in the emission of light (fluorescence)."
+                question: "Which process in fluorescence microscopy results in the emission of light?",
+                options: ["Absorption of light by the sample", "Scattering of light by the sample", "Transition from the excited state to the ground state", "Photobleaching of fluorescent molecules"],
+                correctAnswer: "Transition from the excited state to the ground state",
+                explanation: "Fluorescence microscopy relies on the emission of light when a fluorophore returns from an excited state to the ground state, releasing energy in the form of visible light."
             },
             {
-                question: "What range of wavelengths is typically used in near-infrared (NIR) spectroscopy?",
-                options: ["400 nm to 700 nm", "700 nm to 2500 nm", "100 nm to 400 nm", "2500 nm to 5000 nm"],
-                correctAnswer: "700 nm to 2500 nm",
-                explanation: "Near-infrared spectroscopy operates in the wavelength range of approximately 700 nm to 2500 nm, bridging the gap between visible light and mid-infrared, useful for analyzing molecular overtones and combinations."
+                question: "What is the primary range of wavelengths covered by UV-Vis spectroscopy?",
+                options: ["1 nm to 100 nm", "100 nm to 1000 nm", "200 nm to 800 nm", "800 nm to 2000 nm"],
+                correctAnswer: "200 nm to 800 nm",
+                explanation: "UV-Vis spectroscopy typically covers the range of wavelengths from 200 nm to 800 nm. This range includes ultraviolet (UV) and visible (Vis) light."
             },
             {
-                question: "In optical coherence tomography (OCT), what property of light enables depth-resolved imaging?",
-                options: ["Amplitude", "Coherence", "Frequency", "Dispersion"],
-                correctAnswer: "Coherence",
-                explanation: "OCT uses low-coherence interferometry. The coherence property of light allows interference patterns to form only when light paths are matched within the coherence length, enabling precise measurement of time-of-flight differences from reflections at various tissue depths."
+                question: "Which property of light is used to calculate the refractive index in optical coherence tomography (OCT)?",
+                options: ["Intensity", "Phase", "Wavelength", "Polarization"],
+                correctAnswer: "Phase",
+                explanation: "OCT measures the phase difference between reflected light from different depths of the sample to calculate the refractive index and create high-resolution images."
             },
             {
-                question: "Which molecule in biological tissues is the primary target for light absorption in near-infrared photothermal therapy?",
-                options: ["Lipids", "Proteins", "Water", "Carbohydrates"],
-                correctAnswer: "Water",
-                explanation: "In the near-infrared range used for photothermal therapy (often within the 'biological windows'), water is a significant absorber, contributing to the heating effects. Exogenous agents are also often used, but water is a key endogenous absorber."
+                question: "What is the primary chromophore in biological tissues that absorbs light during photothermal therapy?",
+                options: ["Hemoglobin", "Melanin", "Water", "Collagen"],
+                correctAnswer: "Hemoglobin",
+                explanation: "Hemoglobin, as a key chromophore, strongly absorbs light in the visible and near-infrared regions, making it essential for photothermal therapy targeting blood-rich tissues."
             },
             {
-                question: "Which molecular motion is most effectively detected by Raman spectroscopy but less so by IR spectroscopy?",
-                options: ["Asymmetric bending", "Symmetric stretching of non-polar bonds", "Twisting", "Wagging"],
-                correctAnswer: "Symmetric stretching of non-polar bonds",
-                explanation: "Raman spectroscopy detects vibrations that cause a change in molecular polarizability. Symmetric stretches of non-polar bonds (like C=C or N=N) often have strong Raman signals but weak or no IR absorption (which requires a change in dipole moment)."
+                question: "Which type of molecular vibrations are detected by IR spectroscopy but not by Raman spectroscopy?",
+                options: ["Symmetric stretching", "Asymmetric stretching", "Rocking", "Scissoring"],
+                correctAnswer: "Symmetric stretching",
+                explanation: "IR spectroscopy is sensitive to molecular vibrations that cause a change in dipole moment, such as symmetric stretching. Raman spectroscopy is not as sensitive to symmetric stretching vibrations because they do not result in a change in polarizability."
             },
             {
-                question: "What term describes the scattered light in Raman spectroscopy that has a lower frequency than the incident light?",
-                options: ["Rayleigh scattering", "Stokes scattering", "Anti-Stokes scattering", "Elastic scattering"],
-                correctAnswer: "Stokes scattering",
-                explanation: "Stokes scattering occurs when the scattered photon loses energy to the molecule (exciting a vibrational state), resulting in a lower frequency (longer wavelength) than the incident light."
+                question: "In Raman spectroscopy, what is the term used to describe the scattered light that has the same frequency as the incident light?",
+                options: ["Stokes scattering", "Anti-Stokes scattering", "Rayleigh scattering", "Inelastic scattering"],
+                correctAnswer: "Rayleigh scattering",
+                explanation: "The scattered light in Rayleigh scattering has the same frequency as the incident light and is not involved in any energy transitions. In Raman spectroscopy, the terms 'Stokes scattering' and 'Anti-Stokes scattering' refer to the scattered light with lower and higher frequencies than the incident light, respectively."
             },
             {
-                question: "What is the primary purpose of using two-photon microscopy in biological imaging?",
-                options: ["To increase light scattering", "To image deeper tissue layers with reduced phototoxicity", "To enhance surface imaging", "To measure molecular vibrations"],
-                correctAnswer: "To image deeper tissue layers with reduced phototoxicity",
-                explanation: "Two-photon microscopy uses lower-energy (longer wavelength) near-infrared photons, which penetrate deeper into scattering tissues and cause less phototoxicity because excitation is confined to the focal volume."
+                question: "What is Photodynamic Therapy (PDT)?",
+                options: ["A type of therapy using light and sound waves", "A surgical procedure for removing tumours", "A treatment that uses photosensitizing agents and light to kill or damage cancer cells", "A method of treating infections with antibiotics"],
+                correctAnswer: "A treatment that uses photosensitizing agents and light to kill or damage cancer cells",
+                explanation: "Photodynamic therapy (PDT) is a medical treatment that utilizes a photosensitizing agent, which is activated by light to produce a form of oxygen that kills nearby cells."
             },
             {
-                question: "What is the main source of contrast in photoacoustic imaging?",
-                options: ["Light reflection", "Thermal expansion due to light absorption", "Fluorescence emission", "Molecular polarizability"],
-                correctAnswer: "Thermal expansion due to light absorption",
-                explanation: "Photoacoustic imaging relies on detecting ultrasound waves generated by the rapid thermal expansion of tissue components following absorption of pulsed laser light. Contrast depends on optical absorption."
+                question: "What is the primary mechanism of action of Photodynamic Therapy (PDT)?",
+                options: ["Radioactive decay", "Thermal ablation", "Chemotherapy", "Light activation of photosensitizer"],
+                correctAnswer: "Light activation of photosensitizer",
+                explanation: "Photodynamic Therapy (PDT) involves the activation of a photosensitizing agent by light of a specific wavelength. This activation leads to the generation of reactive oxygen species, causing localized cellular damage and subsequent therapeutic effects."
             },
             {
-                question: "Which optical technique is most effective for imaging cellular structures at nanometer resolution?",
-                options: ["Confocal microscopy", "Super-resolution fluorescence microscopy", "UV-Vis spectroscopy", "Infrared microscopy"],
-                correctAnswer: "Super-resolution fluorescence microscopy",
-                explanation: "Super-resolution fluorescence microscopy techniques (like PALM, STORM, STED) overcome the diffraction limit of light (around 200-250 nm), achieving resolutions down to tens of nanometers."
+                question: "Which imaging technique is best suited for non-invasive imaging of blood flow in tissues?",
+                options: ["Optical coherence tomography (OCT)", "Raman spectroscopy", "Two-photon microscopy", "Photoacoustic imaging"],
+                correctAnswer: "Photoacoustic imaging",
+                explanation: "Photoacoustic imaging detects ultrasound waves generated by light absorption, making it ideal for visualizing blood flow due to hemoglobin's strong absorption."
             },
             {
-                question: "What is a key limitation of fluorescence spectroscopy when analyzing complex biological samples?",
-                options: ["High interference from water absorption", "Inability to detect non-polar molecules", "Autofluorescence from endogenous molecules", "Low penetration depth of infrared light"],
-                correctAnswer: "Autofluorescence from endogenous molecules",
-                explanation: "Autofluorescence from naturally occurring molecules (like NADH, FAD, collagen, elastin) in biological samples can overlap with the signal from fluorescent probes, reducing signal-to-noise ratio and complicating analysis."
+                question: "What is the key advantage of Raman spectroscopy over IR spectroscopy in terms of sample analysis?",
+                options: ["Higher sensitivity to functional groups", "Non-destructive analysis", "Fluorescence effect", "Lower interference from water absorption bands"],
+                correctAnswer: "Lower interference from water absorption bands",
+                explanation: "Raman spectroscopy and infrared (IR) spectroscopy are both powerful analytical techniques used for sample analysis. One key advantage of Raman spectroscopy over IR spectroscopy is its lower interference from water absorption bands. In IR spectroscopy, water absorption bands can overlap with the bands of interest in the sample, making it challenging to analyze samples in aqueous environments. Raman spectroscopy, on the other hand, is less affected by water interference, making it more suitable for analyzing samples in aqueous solutions."
             }
         ]
    },
@@ -529,6 +529,208 @@ const quizData = [
                 explanation: "Verteporfin (Visudyne) is a photosensitizer specifically approved for PDT treatment of the 'wet' form of age-related macular degeneration (AMD), where it targets abnormal blood vessels in the retina."
             }
         ]
-   }
+   },
+   // ------------- WEEK 9 -------------
+    {
+        week: "Week 9",
+        questions: [
+            {
+                question: "Light-induced cell death, a technique used in tissue engineering, is often referred to as:",
+                options: ["Apoptosis", "Optogenetics", "Photothermal therapy", "Photoablation"],
+                correctAnswer: "Photothermal therapy",
+                explanation: "Photothermal therapy involves the use of light to heat and destroy cells. This technique can be used to eliminate unwanted cells, such as cancer cells."
+            },
+            {
+                question: "What is a scaffold in tissue engineering?",
+                options: [
+                    "A three-dimensional structure that provides support for cell growth",
+                    "A source of growth factors",
+                    "A type of cell",
+                    "A bioreactor"
+                ],
+                correctAnswer: "A three-dimensional structure that provides support for cell growth",
+                explanation: "A scaffold provides a physical structure for cells to attach to and grow. It also provides a microenvironment that can influence cell behaviour and differentiation."
+            },
+            {
+                question: "What does LASIK stand for?",
+                options: [
+                    "Laser-Assisted Subepithelial Keratectomy",
+                    "Laser-Activated Stromal Epithelial Keratotomy",
+                    "Laser-Assisted In Situ Keratomileusis",
+                    "Laser-Aided Superficial Epithelial Keratoplasty"
+                ],
+                correctAnswer: "Laser-Assisted In Situ Keratomileusis",
+                explanation: "LASIK stands for Laser-Assisted In Situ Keratomileusis. It involves reshaping the cornea with a laser to correct refractive errors. Refer lecture 44."
+            },
+            {
+                question: "The amount of time that it takes an object to return to the ambient temperature following heating is known as:",
+                options: ["Fluence rate", "Thermal relaxation time", "Dosimetry", "Exposure duration"],
+                correctAnswer: "Thermal relaxation time",
+                explanation: "The thermal relaxation time is the time it takes for a heated object to return to its original temperature. It's influenced by factors such as the object's material properties, size, and the surrounding environment."
+            },
+            {
+                question: "Which laser is commonly used for treating port wine stains?",
+                options: ["CO2 laser", "Excimer laser", "YAG laser", "Argon laser"],
+                correctAnswer: "YAG laser",
+                explanation: "The YAG laser is commonly used in the treatment of port wine stains due to its ability to target blood vessels without damaging surrounding skin. Refer lecture 42"
+            },
+            {
+                question: "Most used laser to treat ophthalmic disorder like retinal tears or retinal blood occlusion is:",
+                options: ["UV laser", "IR laser", "Near visible laser", "None of these"],
+                correctAnswer: "Near visible laser",
+                explanation: "Near-infrared lasers, particularly those with wavelengths around 810 nm, are commonly used in ophthalmic procedures like retinal tear repair and retinal blood vessel occlusion. These lasers can be precisely focused on the target tissue, minimizing damage to surrounding healthy tissue."
+            },
+            {
+                question: "What is a frenectomy?",
+                options: [
+                    "Surgical removal of a skin lesion",
+                    "Procedure to correct a deviated septum",
+                    "Reconstruction of a damaged tissue",
+                    "Surgical removal of a frenulum"
+                ],
+                correctAnswer: "Surgical removal of a frenulum",
+                explanation: "A frenectomy is a surgical procedure to remove a frenulum, which is a small fold of tissue that restricts the movement of an organ or structure."
+            },
+            {
+                question: "What is a bioreactor used for in tissue engineering?",
+                options: [
+                    "Culturing cells",
+                    "Delivering nutrients and oxygen to cells",
+                    "Removing waste products from cells",
+                    "All of the above"
+                ],
+                correctAnswer: "All of the above",
+                explanation: "Bioreactors are used to culture cells, deliver nutrients and oxygen, and remove waste products. They provide a controlled environment that supports cell growth and differentiation."
+            },
+            {
+                question: "Small oil-producing gland present in the skin of mammals is known as:",
+                options: ["Stratum basale", "Stratum granulosum", "Sweat gland", "Sebaceous gland"],
+                correctAnswer: "Sebaceous gland",
+                explanation: "Sebaceous glands are small oil-producing glands found in the skin of mammals. They produce sebum, an oily substance that helps to moisturize the skin and hair."
+            },
+            {
+                question: "Thermal relaxation time can be measured using:",
+                options: ["Infrared thermography", "Thermocouples", "Optical pyrometry", "All of the above"],
+                correctAnswer: "All of the above",
+                explanation: "All of these techniques can be used to measure thermal relaxation time:\n•\tInfrared thermography: This technique measures the temperature distribution on the surface of an object using infrared radiation.\n•\tThermocouples: These devices can be attached to the surface of an object to directly measure its temperature.\n•\tOptical pyrometry: This technique measures temperature based on the intensity of light emitted by an object.\nThe choice of technique depends on the specific application and the desired level of accuracy."
+            }
+        ]
+    },
+    // ------------- WEEK 10 -------------
+    {
+        week: "Week 10",
+        questions: [
+            {
+                question: "What is the main function of the trapping force in optical tweezers?",
+                options: [
+                    "To repel particles from the focal point",
+                    "To attract particles toward the laser focus",
+                    "To stabilize particles against thermal motion",
+                    "To enhance fluorescence emission"
+                ],
+                correctAnswer: "To attract particles toward the laser focus",
+                explanation: "The trapping force in optical tweezers attracts particles toward the focal point of the laser, where the gradient force is maximized, allowing stable trapping."
+            },
+            {
+                question: "Which of the following is a key factor influencing the efficiency of optical trapping?",
+                options: [
+                    "Laser wavelength",
+                    "Particle size",
+                    "Refractive index mismatch",
+                    "All of the above"
+                ],
+                correctAnswer: "All of the above",
+                explanation: "The efficiency of optical trapping is influenced by the laser wavelength, particle size, and refractive index mismatch between the particle and the surrounding medium."
+            },
+            {
+                question: "What is the typical power range of lasers used in optical tweezers?",
+                options: [
+                    "Milliwatts to a few watts",
+                    "Kilowatts",
+                    "Microwatts",
+                    "Terawatts"
+                ],
+                correctAnswer: "Milliwatts to a few watts",
+                explanation: "Lasers used in optical tweezers typically operate in the range of milliwatts to a few watts, sufficient to trap and manipulate microscopic particles without damaging them."
+            },
+            {
+                question: "Which of the following is a critical application of optical tweezers in single-molecule studies?",
+                options: [
+                    "Measuring intermolecular forces",
+                    "Observing macroscopic properties",
+                    "Generating energy",
+                    "Analyzing chemical composition"
+                ],
+                correctAnswer: "Measuring intermolecular forces",
+                explanation: "Optical tweezers are extensively used in single-molecule studies to measure forces such as those between DNA strands or protein interactions with high precision."
+            },
+            {
+                question: "What is the primary mechanism by which laser zona drilling facilitates fertilization?",
+                options: [
+                    "Enhancing the refractive index of the oocyte",
+                    "Creating an opening in the zona pellucida",
+                    "Modifying the DNA of sperm cells",
+                    "Heating the cytoplasm"
+                ],
+                correctAnswer: "Creating an opening in the zona pellucida",
+                explanation: "Laser zona drilling creates a precise opening in the zona pellucida, allowing sperm to access the oocyte for fertilization."
+            },
+            {
+                question: "Which type of laser is commonly used for precision optoinjection?",
+                options: [
+                    "Ultraviolet lasers",
+                    "Infrared lasers",
+                    "Pulsed femtosecond lasers",
+                    "Continuous wave lasers"
+                ],
+                correctAnswer: "Pulsed femtosecond lasers",
+                explanation: "Pulsed femtosecond lasers are commonly used in optoinjection due to their ability to deliver highly localized energy without damaging surrounding material."
+            },
+            {
+                question: "What is the primary advantage of using lasers in non-invasive optoinjection techniques?",
+                options: [
+                    "Rapid heating of the cell",
+                    "Increased genetic material concentration",
+                    "Targeted delivery without physical contact",
+                    "Enhanced cell permeability via mechanical force"
+                ],
+                correctAnswer: "Targeted delivery without physical contact",
+                explanation: "Laser-based optoinjection allows for precise delivery of genetic material without direct physical contact, reducing damage to the cell."
+            },
+            {
+                question: "What is the force that enables optical tweezers to trap microscopic particles?",
+                options: [
+                    "Gravitational force",
+                    "Dielectric force",
+                    "Gradient force",
+                    "Magnetic force"
+                ],
+                correctAnswer: "Gradient force",
+                explanation: "Optical tweezers use the gradient force generated by the intensity profile of a focused laser beam to trap particles."
+            },
+            {
+                question: "Which property of the laser beam is most important for the manipulation of nanoparticles?",
+                options: [
+                    "Divergence",
+                    "Wavelength",
+                    "Polarization",
+                    "Intensity gradient"
+                ],
+                correctAnswer: "Intensity gradient",
+                explanation: "The intensity gradient of the laser beam is critical for manipulating nanoparticles, as it creates the necessary forces to trap and control their movement."
+            },
+            {
+                question: "In laser-assisted cell surgery, what is the role of a femtosecond laser?",
+                options: [
+                    "It selectively absorbs water molecules",
+                    "It creates precise incisions with minimal thermal damage",
+                    "It induces fluorescence for imaging",
+                    "It stimulates cell growth"
+                ],
+                correctAnswer: "It creates precise incisions with minimal thermal damage",
+                explanation: "Femtosecond lasers are ideal for cell surgery as they deliver high-precision energy pulses that minimize thermal damage to the surrounding tissue."
+            }
+        ]
+    }
     // --- End of Weeks Data ---
 ];
